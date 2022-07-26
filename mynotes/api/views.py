@@ -38,4 +38,4 @@ def getRoutes(request):
             'description': 'Deletes and exiting note'
         },
     ]
-    return JsonResponse('From API:', routes, safe=False)
+    return JsonResponse(routes, safe=False)

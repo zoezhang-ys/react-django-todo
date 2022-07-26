@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # add api to app list
     'api.apps.ApiConfig',
+
+    # add REST API
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

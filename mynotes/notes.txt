@@ -1,0 +1,43 @@
+== 1st. Set up virtual environment ==
+1. `pip install virtualenv`. By seperating the packages, it reduce the risk of package conflicts.
+2. `virtualenv env`. Create the environment and call it 'env'.
+3. `env\scripts\activate`. Activate the environment. (In command prompt)
+
+== 2nd. Install required packages ==
+1. `pip install django`
+`pip install requirement.txt` or whatever package needed.
+
+== 3rd. Start Django project ==
+1. `django-admin startproject PROJECT_NAME` to create a project.
+2. `python manage.py runserver` to start the project. (In powershell)
+
+== 4th. Create Django app ==
+1. `python manage.py startapp APP_NAME`
+    - models.py is where to design the database
+
+== 5th. Connect the app(#4) to the project(#5) ==
+1. 'settings.py' inside the main project folder 
+    -> [INSTALLED_APPS] section in code 
+    -> add the path to the app, looks something like 'APP_NAME.apps.APP_NAMEConfig'
+
+== 6th. Create url for app and connect to project ==
+1. 'views.py' in the app folder. Define the functions to return the response.
+2. Create a 'urls.py' in the app folder. Create urlpatterns.
+3. 'urls.py' in the project folder. Add the app urls to the urlpatterns.
+
+== 7th. Design the model ==
+
+== 8th. Migrate (databases) ==
+1. `python manage.py migrate`. Initial setup.
+2. `python manage.py makemigrations` to prepare the migration if new app has been added.
+3. `python manage.py migrate` to migrate again if new app has been added.
+
+== 9th. Access to admin panel ==
+1. `python manage.py createsuperuser` to create a user to manager (test : test@email.com : 123456 for example)
+1. `python manage.py runserver` to start the server.
+2. go to the /admin and log in.
+
+== 10th. To use the model inside the admin panel ==
+1. Resiter the model of the app in 'admin.py' in the app folder.
+    -> `from .models import xxx`
+    -> `admin.site.register(xxx)`
